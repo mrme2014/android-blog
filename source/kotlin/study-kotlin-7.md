@@ -205,14 +205,7 @@ void addNumbers(List<? super Integer> list)
 ```
 
 ## 总结
-
-| Java 泛型    | Java 中代码示例                                          | Kotlin 中代码示例                                            | Kotlin 泛型 |
-| ------------ | -------------------------------------------------------- | ------------------------------------------------------------ | ----------- |
-| 泛型类型     | class Box&lt;T&gt;                                       | class Box&lt;T&gt;                                           | 泛型类型    |
-| 泛型方法     | &lt;T&gt; T fromJson(String json, Class&lt;T&gt; tClass) | fun &lt;T&gt; fromJson(json: String, tClass: Class&lt;T&gt;): T? | 泛型函数    |
-| 有界类型参数 | class Box&lt;T extends Comparable&lt;T&gt;               | class Box&lt;T : Comparable&lt;T&gt;&gt;                     | 泛型约束    |
-| 上界通配符   | void sumOfList(List&lt;? extends Number&gt; list)        | fun sumOfList(list: List&lt;out Number&gt;)                  | 使用处协变  |
-| 下界通配符   | void addNumbers(List&lt;? super Integer&gt; list)        | fun addNumbers(list: List&lt;in Int&gt;)                     | 使用处逆变  |
+![Choosing empty activity](/imgs/kotlin/7-table.png)
 
 总的来说，Kotlin 泛型更加简洁安全，但是和 Java 一样都是有类型擦除的，都属于编译时泛型。
 
