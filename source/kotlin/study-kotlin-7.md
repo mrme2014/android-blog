@@ -205,8 +205,44 @@ void addNumbers(List<? super Integer> list)
 ```
 
 ## 总结
-![Choosing empty activity](/imgs/kotlin/7-table.png)
-
+<table border="1">
+  <tr bgcolor="#999999">
+    <th>Java 泛型</th>
+    <th>Java 中代码示例</th>
+    <th>Kotlin 中代码示例</th>
+    <th>Kotlin 泛型</th>
+  </tr>
+  <tr>
+    <td>泛型方法</td>
+    <td>class Box&lt;T&gt</td>
+    <td>class Box&lt;T&gt</td>
+    <td>泛型类型</td>
+  </tr>
+  <tr>
+    <td>泛型类型</td>
+    <td>&lt;T&gt; T fromJson(String json, Class&lt;T&gt; tClass)</td>
+    <td>fun &lt;T&gt; fromJson(json: String, tClass: Class&lt;T&gt;): T?</td>
+    <td>泛型函数</td>
+  </tr>
+  <tr>
+    <td>有界类型参数</td>
+    <td>void sumOfList(List&lt;? extends Number&gt; list)</td>
+    <td>class Box&lt;T : Comparable&lt;T&gt;</td>
+    <td>泛型约束</td>
+  </tr>
+  <tr>
+    <td>上界通配符</td>
+    <td>class Box&lt;T extends Comparable&lt;T&g</td>
+    <td>fun sumOfList(list: List&lt;out Number&</td>
+    <td>使用处协变</td>
+  </tr>
+  <tr>
+    <td>下界通配符</td>
+    <td>void addNumbers(List&lt;? super Integer&gt; list)</td>
+    <td>fun addNumbers(list: List&lt;in Int&gt;)</td>
+    <td>使用处逆变</td>
+  </tr>
+</table>
 总的来说，Kotlin 泛型更加简洁安全，但是和 Java 一样都是有类型擦除的，都属于编译时泛型。
 
 

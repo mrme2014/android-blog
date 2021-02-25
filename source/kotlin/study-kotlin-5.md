@@ -22,7 +22,6 @@ title: Kotlin方法进阶
 经过前面一系列对Kotlin学习，相信大家已经能对Kotlin有了一个基本的认识。但对与架构师来说是肯定无法满足前面的基础语法。
 从这节开始，我就为大家讲解Kotlin的方法以及Lambda表达式等高级操作。
 
-
 ## 目录
 
 - Kotlin的方法
@@ -41,7 +40,7 @@ title: Kotlin方法进阶
 ![Kotlin方法](/imgs/kotlin/kotlin-function.png)
 
 
-```kotlin
+```
 fun functionLearn(days: Int): Boolean {
     return days > 100
 }
