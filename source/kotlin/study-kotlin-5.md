@@ -1,23 +1,6 @@
 ---
-title: Kotlin方法进阶
+title: Kotlin方法与Lambda表达式
 ---
-<!--more-->
-<script type="text/javascript">
-    // 禁止右键菜单
-    // true是允许，false是禁止
-    document.oncontextmenu = function(){ return false; };
-    // 禁止文字选择
-    document.onselectstart = function(){ return false; };
-    // 禁止复制
-    document.oncopy = function(){ return false; };
-    // 禁止剪切
-    document.oncut = function(){ return false; };
-    // 禁止粘贴
-    document.onpaste = function(){ return false; };
-    // 禁止键盘事件
-    document.onkeydown = function(){ return false; };
-</script>
-# Kotlin方法与Lambda表达式
 
 经过前面一系列对Kotlin学习，相信大家已经能对Kotlin有了一个基本的认识。但对与架构师来说是肯定无法满足前面的基础语法。
 从这节开始，我就为大家讲解Kotlin的方法以及Lambda表达式等高级操作。

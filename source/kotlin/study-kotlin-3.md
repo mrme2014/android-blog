@@ -1,7 +1,6 @@
 ---
 title: Kotlin必备基础
 ---
-# Kotlin必备基础
 
 在这一节呢，我为大家准备了一些Kotlin必备基础。在学习一门语言的时候我们首先需要学习的是它有怎样的数据类型
 ，以及它数组、集合和方法是怎样子，因为这些是我们入手一门新的语言时的第一步，也是基础中的基础。
@@ -9,22 +8,7 @@ title: Kotlin必备基础
 >那么，为了让大家快速掌握本节课的内容，我会将Kotlin和Java类比着进行讲解，这也是作为一个老开发快速学习其它语言的一个屡试不爽的经验所在。
 >就像习武一样，习武的人往往会借助已有的内功，可以很快速的掌握一门新的武功，那么对于从事Android的小伙伴们来说，这么多年对Java的使用就是我们的内功
 >，所以在这里我会带着大家借助已有的内功来快速上手Kotlin。
-<!--more-->
-<script type="text/javascript">
-    // 禁止右键菜单
-    // true是允许，false是禁止
-    document.oncontextmenu = function(){ return false; };
-    // 禁止文字选择
-    document.onselectstart = function(){ return false; };
-    // 禁止复制
-    document.oncopy = function(){ return false; };
-    // 禁止剪切
-    document.oncut = function(){ return false; };
-    // 禁止粘贴
-    document.onpaste = function(){ return false; };
-    // 禁止键盘事件
-    document.onkeydown = function(){ return false; };
-</script>
+
 ## 目录
 
 - 认识Kotlin基本类型
@@ -50,44 +34,44 @@ Kotlin 的基本数值类型包括 Byte、Short、Int、Long、Float、Double �
     <th>最小值</th>
     <th>最大值</th>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>Byte</td>
     <td>8</td>
     <td>-128</td>
     <td>-127</td>
   </tr>
-   <tr>
+   <tr  bgcolor="#eeeeee">
     <td>Short</td>
     <td>16</td>
     <td>-32768</td>
     <td>32767</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>Int</td>
     <td>32</td>
     <td>-2,147,483,648 (-231)</td>
     <td>2,147,483,647 (231 - 1)</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#eeeeee">
     <td>Long</td>
     <td>64</td>
     <td>-9,223,372,036,854,775,808 (-263)</td>
     <td>9,223,372,036,854,775,807 (263 - 1) </td>
   </tr>
 </table>
-
+<br>
 
 >对于浮点数，Kotlin提供了Float和Double类型
 <table border="1">
   <tr bgcolor="#999999">
-    <th>类型</th>
-    <th>位宽</th>
+    <th width="310">类型</th>
+    <th width="310"位宽</th>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>Float</td>
     <td>32</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#eeeeee">
    <td>Double</td>
    <td>64</td>
   </tr>

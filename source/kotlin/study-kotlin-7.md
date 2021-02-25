@@ -1,22 +1,6 @@
 ---
 title: 深入理解Kotlin泛型
 ---
-<!--more-->
-<script type="text/javascript">
-    // 禁止右键菜单
-    // true是允许，false是禁止
-    document.oncontextmenu = function(){ return false; };
-    // 禁止文字选择
-    document.onselectstart = function(){ return false; };
-    // 禁止复制
-    document.oncopy = function(){ return false; };
-    // 禁止剪切
-    document.oncut = function(){ return false; };
-    // 禁止粘贴
-    document.onpaste = function(){ return false; };
-    // 禁止键盘事件
-    document.onkeydown = function(){ return false; };
-</script>
 
 Kotlin 的泛型与 Java 一样，都是一种语法糖，即只在源代码中有泛型定义，到了class级别就被擦除了。
 泛型（Generics）其实就是把类型参数化，真正的名字叫做类型参数，它的引入给强类型编程语言加入了更强的灵活性。
@@ -212,37 +196,38 @@ void addNumbers(List<? super Integer> list)
     <th>Kotlin 中代码示例</th>
     <th>Kotlin 泛型</th>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>泛型方法</td>
     <td>class Box&lt;T&gt</td>
     <td>class Box&lt;T&gt</td>
     <td>泛型类型</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#eeeeee">
     <td>泛型类型</td>
     <td>&lt;T&gt; T fromJson(String json, Class&lt;T&gt; tClass)</td>
     <td>fun &lt;T&gt; fromJson(json: String, tClass: Class&lt;T&gt;): T?</td>
     <td>泛型函数</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>有界类型参数</td>
     <td>void sumOfList(List&lt;? extends Number&gt; list)</td>
     <td>class Box&lt;T : Comparable&lt;T&gt;</td>
     <td>泛型约束</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#eeeeee">
     <td>上界通配符</td>
     <td>class Box&lt;T extends Comparable&lt;T&g</td>
     <td>fun sumOfList(list: List&lt;out Number&</td>
     <td>使用处协变</td>
   </tr>
-  <tr>
+  <tr  bgcolor="#ffffff">
     <td>下界通配符</td>
     <td>void addNumbers(List&lt;? super Integer&gt; list)</td>
     <td>fun addNumbers(list: List&lt;in Int&gt;)</td>
     <td>使用处逆变</td>
   </tr>
 </table>
+<br></br>
 总的来说，Kotlin 泛型更加简洁安全，但是和 Java 一样都是有类型擦除的，都属于编译时泛型。
 
 
