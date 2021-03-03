@@ -48,7 +48,7 @@ page.banner_mask_alpha = theme.post.banner_mask_alpha
                   </div>
                 <% } %>
               </div>
-              <center><img src="/imgs/official-accounts.png" style="zoom:80%; box-shadow: 10px 10px 10px rgba(0,0,0,.5);-moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);" /></center>
+              <center><img src="<%= url_for('/imgs/official-accounts.png')%>" style="zoom:80%; box-shadow: 10px 10px 10px rgba(0,0,0,.5);-moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);" /></center>
               <% if(theme.post.copyright.enable && theme.post.copyright.content && page.copyright !== false) { %>
                 <p class="note note-warning">
                   <% if (typeof page.copyright === 'string' && page.copyright !== '') { %>

@@ -21,7 +21,7 @@ title: Kotlin方法与Lambda表达式
 
 ### 方法声明
 
-![Kotlin方法](/imgs/kotlin/kotlin-function.png)
+<img src="/imgs/kotlin/kotlin-function.png" />
 
 
 ```kotlin

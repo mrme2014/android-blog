@@ -1,5 +1,10 @@
 ---
 title: 实战：发布Gradle插件到JCenter
+categories: 
+  - jcenter
+tags:
+  - jcenter
+  - bintray
 ---
 
 <!--more-->

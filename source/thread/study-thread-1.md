@@ -13,7 +13,7 @@ title: 走进Android线程世界
 - 线程间消息通讯
 - 线程安全
 
-![1.thread_introduction_png](/imgs/thread/thread_introduction_png.png)
+<img src="/imgs/thread/thread_introduction_png.png" />
 
 ### 线程与进程
 
@@ -201,8 +201,7 @@ android.os.Process.setThreadPriority(int newPriority)
   </tr>
   </table>
 
-![thread_status](/imgs/thread/thread_status.png)
-
+<img src="/imgs/thread/thread_status.png" />
 <table border="1">
   <tr bgcolor="#999999">
     <th>方法名</th>

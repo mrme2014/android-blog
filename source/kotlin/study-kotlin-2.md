@@ -32,11 +32,11 @@ Android Studio 3.0 及更高版本提供全面的Kotlin 支持，如果你的AS�
 
 选择一个定义应用程序行为的 activity 。对于第一个 "Hello world" 应用程序，选择仅显示空白屏幕的` Empty Activity`，然后点击 `Next`。
 
-![Choosing empty activity](/imgs/kotlin/0-create-new-project.png)
+<img src="/imgs/kotlin/0-create-new-project.png" />
+
 
 在下一个对话框中，填写工程的详细信息：
-
-![Project configuration](/imgs/kotlin/1-create-new-project.png)
+<img src="/imgs/kotlin/1-create-new-project.png" />
 
 **开发语言：选择 Kotlin**。
 
@@ -61,7 +61,7 @@ Kotlin有着极小的运行时文件体积：整个库的大小约 1298 KB（1.3
 
 用Android Studio打开已有的Android项目，然后菜单栏上的`Tools`选项 -> `Kotlin` -> `configure kotlin in project`：
 
-![configure-kotlin-with-android-with-gradle](/imgs/kotlin/configure-kotlin-with-android-with-gradle.jpg)
+<img src="/imgs/kotlin/configure-kotlin-with-android-with-gradle.jpg" />
 
 ### 手动添加
 

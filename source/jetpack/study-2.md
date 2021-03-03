@@ -108,8 +108,7 @@ void performCreate(){
 ```
 
 - LifecycleOwner、Lifecycle、LifecycleRegistry的关系
-
-![lifecycle3](/imgs/jetpack/lifecycle3.png)
+ <img src="/imgs/jetpack/lifecycle3.png" />
 
 
 
@@ -184,7 +183,7 @@ public class ReportFragment extends Fragment{
 
 - 添加observer时,完整的生命周期事件分发
 
-![lifecycle4](/imgs/jetpack/lifecycle4.png)
+ <img src="/imgs/jetpack/lifecycle4.png" />
 
 - 作业:基于Lifecycle实现APP前后台切换事件观察的能力
 

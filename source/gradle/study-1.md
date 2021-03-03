@@ -1,5 +1,11 @@
 ---
 title: 如何高效的构建渠道包？
+categories: 
+  - gradle
+tags:
+  - gradle自动化
+  - 多渠道打包
+  - V1、V2签名
 ---
 
 <!--more-->
@@ -124,7 +130,7 @@ public final class BuildConfig {
 
 ### V1签名方案概述
 
-![签名流程](/imgs/gradle/签名流程.png)
+<img src="/imgs/gradle/签名流程.png">
 
 - **MANIFEST.MF**：记录apk中每一个文件名与文件SHA1摘要，主要作用是保证每个文件的完整性）
 - **CERT.SF :** 记录了对MANIFEST.MF文件整体进行摘要的信息，和每一块摘要的二次摘要，防止MAINIFEST.MF被篡改
@@ -210,7 +216,7 @@ c7:9f: 88:3d: ea: a7:29:85:16:08:41: ad: 40:19:4f
 
 <center><img src="/imgs/gradle/zip.png" alt="zip" style="zoom:40%;" /></center>
 
-- ![apk](/imgs/gradle/apk.png)
+<img src="/imgs/gradle/apk.png">
 
 - **分块计算摘要**
 
@@ -218,11 +224,10 @@ c7:9f: 88:3d: ea: a7:29:85:16:08:41: ad: 40:19:4f
 
   V2摘要签名分两级，第一级分块摘要，第二级是对第一级的摘要集合进行摘要，然后利用秘钥进行签名。安装的时候，块摘要可以并行处理，这样可以提高校验速度。
 
-  ![chunk](/imgs/gradle/chunk.png)
+  <img src="/imgs/gradle/chunk.png">
 
 - 签名之后的apk
-
-![signblock](/imgs/gradle/signblock.png)
+  <img src="/imgs/gradle/signblock.png">
 
 - 在这个 APK 文件结构下，只有 块2记录apk 签名信息的区域，不是全部参与 v2 签名的校验，所以大家都在这部分做文章。
 

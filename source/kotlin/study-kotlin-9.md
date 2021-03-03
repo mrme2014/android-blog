@@ -33,7 +33,7 @@ Kotlin的扩展函数可以让你作为一个类成员进行调用的函数，�
 
 ### 扩展方法的原型
 
-![kotlin-extension](/imgs/kotlin/kotlin-extension.png))
+<img src="/imgs/kotlin/kotlin-extension.png" />
 
 ### 扩展方法的使用
 

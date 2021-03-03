@@ -16,7 +16,7 @@ title: 架构师该如何选择导航框架
 
 ### Android路由框架的诞生之路
 
-<img src="Android路由.png" alt="Android路由" style="zoom:50%;" />
+<img src="/Android路由.png" alt="Android路由" style="zoom:50%;" />
 
 <br/>
 

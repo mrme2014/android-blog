@@ -107,6 +107,7 @@ int  getActiveCount()//返回当前正在运行的线程数量
 
 - 线程池状态流转
 
+
 <img src="/imgs/thread/线程池状态.png" style="zoom:50%" width="2000"/>
 
 - execute提交任务流程

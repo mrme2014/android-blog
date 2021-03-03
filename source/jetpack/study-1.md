@@ -29,7 +29,7 @@ title: 走进Jetpack架构组件库
 
 ### Jetpack组件库介绍
 
-![Jetpack核心组件](/imgs/jetpack/Jetpack核心组件.png)
+ <img src="/imgs/jetpack/Jetpack核心组件.png" />
 
 - ##### Navigation:为单Activity架构而生的端内路由
 

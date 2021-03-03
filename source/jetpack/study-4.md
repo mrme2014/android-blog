@@ -106,7 +106,7 @@ val viewmodel = ViewProvider(application).get(HiViewModel::class.java)
 val viewmodel = ViewModelProvider(activity).get(HiViewModel::class.java)
 ```
 
-![viewmodel_provider](/imgs/jetpack/viewmodel_provider.png)
+<img src="/imgs/jetpack/viewmodel_provider.png" />
 
 
 
@@ -183,31 +183,31 @@ public final Object onRetainNonConfigurationInstance() {
 - SavedStatedRegistry数据存储、恢复中心。
 - SavedStateHandle：单个ViewModel数据存储 、恢复。
 
-![savedstatehandle](/imgs/jetpack/savedstatehandle.png)
+<img src="/imgs/jetpack/savedstatehandle.png" />
 
 </br>
 
 - SavedStateRegistry 模型。一个总Bundle,key-value存储着每个ViewModel对应子bundle
 
-![savedStateRegistry](/imgs/jetpack/savedStateRegistry.png)
+<img src="/imgs/jetpack/savedStateRegistry.png" />
 
 </br>
 
 - SavedState数据存储流程.逐一调用每个SavedStateHandle保存自己的数据。汇总成一个总的Bundle,再存储到Activity的savedState对象中。
 
-![savedstate_save](/imgs/jetpack/savedstate_save.png)
+<img src="/imgs/jetpack/savedstate_save.png" />
 
 </br>
 
 - SavedState数据复用流程(1),从Activity的saveState恢复所有ViewModel的数据到SavedStateRegistry
 
-![savedstate_restore](/imgs/jetpack/savedstate_restore.png)
+<img src="/imgs/jetpack/savedstate_restore.png" />
 
 </br>
 
 - SavedState数据复用流程(2)，创建ViewModel并传递恢复的SavedStateHandle
 
-![savedstate_create](/imgs/jetpack/savedstate_create.png)
+<img src="/imgs/jetpack/savedstate_create.png" />
 
 
 

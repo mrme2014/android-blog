@@ -100,8 +100,8 @@ class MainActivity :(Hilt_MainActivity) AppcomponentActivity {
   - 都会调用`injectxxx(MainActivity instance)`开始注入对象
 
     
+  <img src="/imgs/ioc/components.png" />
 
-  ![components](/imgs/ioc/components.png)
 
 ```kotlin
 public final class HiApplication_HiltComponents {
@@ -143,7 +143,7 @@ public final class HiApplication_HiltComponents {
   - 组件间存在嵌套关系，生命周期长的组件称之为生命周期短的组件的父容器，其中ApplicationC作为顶层容器
   - 目的是可以方便的从父容器获取实例对象(比如FragmentCImpl可以直接从ActivityCImpl中获取单例对象，实现共享)
 
-<img src="组件间关系.jpeg" alt="组件间关系" style="zoom:50%;" />
+<img src="/imgs/ioc/组件间关系.jpeg" alt="组件间关系" style="zoom:50%;" />
 
 
 

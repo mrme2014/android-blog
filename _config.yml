@@ -8,13 +8,18 @@ subtitle: ''
 description: ''
 keywords:
 author: songyubao
-language: zh
+language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://www.songyubao.com/android-blog/public/
-root: /android-blog/public/
+## 线上环境
+# url: http://www.songyubao.com/blog/
+# root: /blog/
+
+## 开发环境
+url: 'http://www.songyubao.com/'
+root:
 permalink: :title/
 permalink_defaults:
 pretty_urls:

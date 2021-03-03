@@ -37,7 +37,7 @@ Google在2019年的Google I/O大会上宣布Kotlin被选为Android开发首选�
 
 ## Kotlin设计理念
 
-![Kotlin设计理念](/imgs/kotlin/kotlin-design-concept.jpg)
+<img src="/imgs/kotlin/kotlin-design-concept.jpg" />
 
 上图是来在于Kotlin语言设计团队的老大Andrey Breslav在2018年KotlinConf的会议上的演讲，里面包含了他对Kotlin设计上的一些理念的介绍，感兴趣的同学可以在油管上搜一下这个视频的完整版。
 
@@ -47,7 +47,7 @@ Google在2019年的Google I/O大会上宣布Kotlin被选为Android开发首选�
 
 - 不仅简洁而且可读性强：主要指的是Kotlin支持隐藏例如getter、setter等Java模板代码，并且有大量的标准库以及灵活的重载和扩展机制，来使代码变得更加直观；
 
-![java-vs-kotlin](/imgs/kotlin/java-vs-kotlin.png)
+<img src="/imgs/kotlin/java-vs-kotlin.png" />
 上图是在设置控件点击事件时分别用Java和Kotlin实现的对比，可以看出Kotlin实现省去了一些模板代码，不仅看起来简洁而且能让开发者专注于具体逻辑的实现，可读性更强。
 
 - 不仅富有表现力而且可复用性更强：Kotlin将一些常用的功能比如：Android的一些扩展等封装成库，以方便开发者使用，在复用性方面它比Java有过之而不及；
@@ -60,7 +60,7 @@ Google在2019年的Google I/O大会上宣布Kotlin被选为Android开发首选�
 
 ## Kotlin构建流程
 
-![Kotlin设计理念](/imgs/kotlin/kotlin-build.png)
+<img src="/imgs/kotlin/kotlin-build.png" />
 
 上图是Kotlin和Java的构建流程对比：
 

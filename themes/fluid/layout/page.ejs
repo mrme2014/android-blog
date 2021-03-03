@@ -22,7 +22,8 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
             <% } %>
           </p>
         <% } %>
-        <center><img src="/imgs/official-accounts.png" style="zoom:80%; box-shadow: 10px 10px 10px rgba(0,0,0,.5);-moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);" /></center>
+        <center><img src="<%= url_for('/imgs/official-accounts.png')%>" style="zoom:80%; box-shadow: 10px 10px 10px rgba(0,0,0,.5);-moz-box-shadow: 10px 10px 10px rgba(0,0,0,.5);-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.5);" /></center>
+        <div style="height:30px"></div>
         <div class="markdown-body">
           <%- page.content %>
         </div>
@@ -32,17 +33,17 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
             <% if (page.categories && page.categories.length > 0) { %>
               <div class="post-meta mr-3">
                 <i class="iconfont icon-category"></i>
-                <% page.categories.each(function(cate) { %>
-                  <a class="hover-with-bg" href="<%= url_for(cate.path) %>"><%- cate.name %></a>
-                <% }) %>
+                <% for (var i =0; i < page.categories.length; ++i) { %>
+                  <a class="hover-with-bg" href="/categories<%= url_for(page.categories[i]) %>"><%- page.categories[i] %></a >
+                <% } %>
               </div>
             <% } %>
-            <% if (page.tags && page.tags.length > 0 ) { %>
+            <% if (page.tags && page.tags.length > 0) { %>
               <div class="post-meta">
                 <i class="iconfont icon-tags"></i>
-                <% page.tags.each(function(tag) { %>
-                  <a class="hover-with-bg" href="<%= url_for(tag.path) %>"><%- tag.name %></a>
-                <% }) %>
+                <% for (var i =0; i < page.tags.length; ++i) { %>
+                  <a class="hover-with-bg" href="/tags<%= url_for(page.tags[i]) %>"><%- page.tags[i] %></a>
+                <% } %>
               </div>
             <% } %>
           </div>
@@ -81,7 +82,7 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
           <% } %>
         </div>
 
-        <% if(page.comments && theme.post.comments.enable) { %>
+        <% if(theme.post.comments.enable) { %>
           <!-- Comments -->
           <article class="comments" id="comments">
             <% if (typeof page.comment === 'string' && page.comment !== '') { %>

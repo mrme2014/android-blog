@@ -1,5 +1,12 @@
 ---
 title: APK打包与安全
+categories: 
+  - Apk安全
+tags:
+  - 打包原理
+  - aapt2
+  - 包加固
+  - 反编译
 ---
 
 <!--more-->
@@ -14,7 +21,7 @@ title: APK打包与安全
 
 #### **apk文件结构**
 
-![apk](/imgs/gradle/apk.jpeg)
+<img src="/imgs/gradle/apk.jpeg" />
 
 - **classes.dex**：Dex是**D**alvikVM **ex**ecutes的缩写，即Android Dalvik执行文件
 
@@ -187,7 +194,7 @@ assembleDebug打包流程中关键的 Task 所对应的实现类与含义
 
   - 由于程序运行的时候，需要先加载StubApplication类。所以，我们需要修改`AndroidManifest.xml`文件，指定application为`StubApplication`
 
-![dex加壳3](/imgs/gradle/dex加壳3.png)
+<img src="/imgs/gradle/dex加壳3.png" />
 
 - #### 脱壳
 
@@ -200,6 +207,6 @@ assembleDebug打包流程中关键的 Task 所对应的实现类与含义
     - 创建原Application对象，并调用原Application的onCreate方法启动原程序
     - 通过反射修改ActivityThread类，并将Application指向原dex文件中的Application
 
-![dex加壳4](/imgs/gradle/dex加壳4.png)
+   <img src="/imgs/gradle/dex加壳4.png" />
 
 - [360加固保](https://jiagu.360.cn/#/global/download)

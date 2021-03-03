@@ -27,6 +27,7 @@ title: 走进Android线程世界
 - 自定义Fragment 导航器，实现页面hide-show的切换方式
 
 - 配置化的APP主页架构
+
   <img src="/imgs/route/Navigation案例.png" style="zoom:50%;" width="1600">
 
   <br/>

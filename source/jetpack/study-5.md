@@ -21,8 +21,7 @@ title: Room架构组件原理解析
 - 丰富的编译时校验，错误提示
 
   
-
-![room](/imgs/jetpack/room.png)
+<img src="/imgs/jetpack/room.png" />
 
 ### Room高频用法
 
@@ -124,20 +123,21 @@ abstract class CacheDatabase : RoomDatabase() {
 
 - Room数据抽象设计
 
-![room_arc](/imgs/jetpack/room_arc.png)
+<img src="/imgs/jetpack/room_arc.png" />
 
 - 数据库创建流程
 
-![room_database](/imgs/jetpack/room_database.png)
+
+<img src="/imgs/jetpack/room_database.png" />
 
 ### Room与LiveData的巧妙结合,数据变更监听
 
 - Room与LiveData的巧妙结合
   - 第一次向livedata注册observer时触发onActive,从而触发首次数据加载，并向InvalidationTracker注册表数据变更监听
 
-![room_livedata](/imgs/jetpack/room_livedata.png)
+<img src="/imgs/jetpack/room_livedata.png" />
 
 - 数据变更监听
   - 增删改三种操作开始之前会向一张表中写入本次操作的表的名称,状态置为1，操作完成后会触发InvalidationTracker的endTranstions。进而调用 refreshRunnable查询出 所有数据变更了的表。然后回调给每一个RoomTracklingLiveData再次执行refreshRunnable 重新加载数据，并发送到UI层的observer刷新页面。
 
-![room_livedata_trigger](/imgs/jetpack/room_livedata_trigger.png)
+<img src="/imgs/jetpack/room_livedata_trigger.png" />

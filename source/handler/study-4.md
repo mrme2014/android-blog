@@ -1,136 +1,76 @@
 ---
-title: 架构师该如何选择导航框架
+title: 热修复实战
 ---
+## 走进Android热修复世界
 
+- 主流热修复方式
+- 动态加载dex实现热修复hexo
 
-## 目录
+### 主流热修复方式
 
-- Android路由框架的诞生之路
-- 传统路由方式
-- 路由的最佳实践
-- Navigation&Arouter横向对比
-- 架构师技术选型
+| 实现方式   | 优劣势                                                   | 代表           |
+| ---------- | -------------------------------------------------------- | -------------- |
+| 底层替换   | 底层替换方案限制颇多，但时效性最好，加载轻快，立即见效   | AndFix、Sophix |
+| 类加载方案 | 类加载方案时效性差，需要重新冷启动才能见效，但修复范围广 | QZone、Tinker  |
 
-<br/>
+| 能力\方案  | Tinker               | QZone              | AndFix | Sophix             |
+| ---------- | -------------------- | ------------------ | ------ | ------------------ |
+| Dex修复    | 冷启动               | 冷启动             | 不支持 | 即时，冷启动       |
+| 资源替换   | 差量包，需要合成     | 差量包，需要合成   | 不支持 | 差量包，不用合成   |
+| So替换     | 替换接口，开发不透明 | 插桩实现，开发透明 | 不支持 | 插桩实现，开发透明 |
+| 成功率     | 高                   | 较高               | 一般   | 高                 |
+| 全版本支持 | 支持                 | 支持               | 支持   | 支持               |
+| 性能损耗   | 较大                 | 较大               | 较小   | 较低               |
+| 补丁包大小 | 较小                 | 较大               | 较大   | 较小               |
+| 接入复杂度 | 复杂                 | 较低               | 较高   | 较低               |
+| SDK体积    | 较大                 | 较小               | 较小   | 较小               |
+|            |                      |                    |        |                    |
 
-### Android路由框架的诞生之路
+### 动态加载dex实现热修复
 
-<img src="Android路由.png" alt="Android路由" style="zoom:50%;" />
+<img src="/imgs/handler/hotfix.png">
 
-<br/>
-
-### 传统路由方式
-
-```java
-//显性意图
-startActivity(new Intent(this, HomeActivity.class));
-
-//隐性意图
-startActivity(new Intent("imooc://nativepage/home"));
-
-//Eventbus
-EventBus.getDefault().post(new HomePageEvent());
-
-//静态方法调用
-ActivityManager.openHomeActivity(Intent intent)
-```
-
-<br/>
-
-### 路由的最佳实践
+- step1 找到classloader中的dexPathList对象
 
 ```java
-@Path(path = "nativepage/home")
-public class HomeActivity extend AppcompactActivity {
-    
-}
+ ClassLoader loader = context.getClassLoader();
+ Field pathListField = findField(loader, "pathList");
+ Object dexPathList = pathListField.get(loader); 
+```
 
-Router.for("nativepage/home")
-       .withString("name", "888")
-       .withInt("age", 11)
-       .open();
+- step2 执行dexPathList.makeDexElements方法，生成包含dex的element数组
+
+```java
+private static Object[] makeDexElements(Object dexPathList, ArrayList<File> files,ClassLoader loader) {
+        Method makeDexElements = findMethod(dexPathList, "makeDexElements", List.class, File.class, List.class, ClassLoader.class);
+        return (Object[]) makeDexElements.invoke(dexPathList, files, null, exceptions, loader);
+    }
+```
+
+- Step3 向dexPathList合并新加载进来dex数组 
+
+```java
+private static void expandFieldArray(Object instance, String fieldName,Object[] extraElements) {
+       Field dexElementsFiled = findField(instance, "dexElements");
+        Object[] original = (Object[]) dexElementsFiled.get(instance);
+         //构建新的element数组，先把修复bug的dexelement数组放进去，再把原来的放进去，最后更改到dexpathList对象的dexelement
+        //getComponentType得到数组中元素的类型 ，我们知道是Element,但是无法直接访问到该类。
+        Object[] combined = (Object[]) Array.newInstance(original.getClass().getComponentType(), original.length + extraElements.length);
+        System.arraycopy(extraElements, 0, combined, 0, extraElements.length);
+        System.arraycopy(original, 0, original, extraElements.length, original.length);
+        dexElementsFiled.set(instance, combined);
+    }
+
+```
+
+- **class打包成dex 命令**
+  - 在你的环境变量中添加dx脚本的路径`/Users/***/Library/Android/sdk/build-tools/30.0.0`
+  - 然后在as 中打开terminal.输入一下命令，output是指输出的dex文件路径及名称，如下指定会生成在项目根目录下，后面跟的是需要打包的class文件，或者目录。
+
+```java
+dx --dex --no-strict --output=patch.dex app/build/intermediates/javac/debug/classes/org/devio/as/proj/hi_handler/HotFixTest.class
+
 ```
 
 
 
-<br/>
-
-### Arouter&Navigation横向对比
-<img src="/imgs/route/路由框架.png" style="zoom:50%;" />
-<table border="1">
-  <tr bgcolor="#999999">
-    <th width="310">类型</th>
-    <th> Navigation</th>
-    <th> ARouter</th>
-  </tr>
-  <tr  bgcolor="#ffffff">
-    <td>跳转行为</td>
-    <td>通过页面的action跳转,支持Activity,Fragment,Dialog</td>
-    <td>支持标准URL跳转</td>
-  </tr>
-  <tr  bgcolor="#eeeeee">
-   <td>模块间通信</td>
-   <td>❎不支持，自行拓展</td>
-   <td>@Route 注解配置，支持根据Path获取对应接口实现</td>
-  </tr>
-   <tr  bgcolor="#ffffff">
-    <td>路由节点注册</td>
-    <td>统一在navigation_mobile.xml中注册</td>
-    <td>@Route注解</td>
-  </tr>
-  <tr  bgcolor="#eeeeee">
-   <td>路由节点扩展</td>
-   <td>一般</td>
-   <td>一般 </td>
-  </tr>
-  <tr  bgcolor="#ffffff">
-   <td>拦截器</td>
-   <td>❎不支持 </td>
-   <td>支持配置全局拦截器,可以自定义拦截顺序 </td>
-  </tr>
-  <tr  bgcolor="#eeeeee">
-   <td>转场动画</td>
-   <td>支持</td>
-   <td>支持</td>
-  </tr>
-   <tr  bgcolor="#ffffff">
-   <td>降级策略</td>
-   <td>❎不支持</td>
-   <td>支持全局降级和局部降级 </td>
-  </tr>
-    <tr  bgcolor="#eeeeee">
-   <td>跳转监听</td>
-   <td>❎不支持</td>
-   <td>支持全局和单次 </td>
-  </tr>
-  <tr  bgcolor="#ffffff">
-   <td>跳转跳转参数监听</td>
-   <td>支持基本类型和自定义类型</td>
-   <td>支持基本类型和自定义类型</td>
-  </tr>
-  <tr  bgcolor="#eeeeee">
-   <td>参数自动注入</td>
-   <td>❎不支持</td>
-   <td>@Autowired 注解的属性可被自动注入</td>
-  </tr>
-   <tr  bgcolor="#ffffff">
-   <td>外部跳转控制</td>
-   <td>deeplink页面直达 </td>
-   <td>需要配置入口Acitity，支持的uri需要在Manifest中配置</td>
-  </tr>
-     <tr  bgcolor="#eeeeee">
-   <td>回退栈管理</td>
-   <td>支持逐个出栈，也支持直接回退到某个页面 </td>
-   <td>❎不支持</td>
-  </tr>
-      <tr  bgcolor="#ffffff">
-   <td>自动生成路由文档</td>
-   <td>❎不支持 </td>
-   <td>支持</td>
-  </tr>
-</table>
-<br/>
-
-### 如何做好技术选型
-
-<img src="/imgs/route/技术选型.png" alt="技术选型" style="zoom:70%;" />

@@ -1,5 +1,13 @@
 ---
 title: 实战：基于Jenkins实现持续集成与自动打包
+categories: 
+  - 持续集成
+tags:
+  - jenkins
+  - 持续集成
+  - 自动打包
+  - 蒲公英
+  - 钉钉机器人
 ---
 
 <!--more-->
@@ -61,7 +69,7 @@ Jenkins是一个开源软件项目，是基于Java开发的一种[持续集成](
 
 ### Jekins配置
 
-![jenkins7](/imgs/gradle/jenkins7.png)
+<img src="/imgs/gradle/jenkins7.png" />
 
 #### 安装额外的插件
 
@@ -75,11 +83,11 @@ Jenkins是一个开源软件项目，是基于Java开发的一种[持续集成](
 
 1. **Manage Jenkins -->Global Tool Configuration**
 
-   ![jdk](/imgs/gradle/jdk.jpeg)
+   <img src="/imgs/gradle/jdk.jpeg" />
 
-   ![git](/imgs/gradle/git.jpeg)
+   <img src="/imgs/gradle/git.jpeg" />
 
-   ![gradle](/imgs/gradle/gradle.jpeg)
+   <img src="/imgs/gradle/gradle.jpeg" />
 
    > Mac和Windows快速查看git安装目录
    >
@@ -90,7 +98,7 @@ Jenkins是一个开源软件项目，是基于Java开发的一种[持续集成](
 
    ANDROID_HOME的路径必须注入到系统的环境变量中
 
-   ![android_sdk](/imgs/gradle/android_sdk.jpeg)
+   <img src="/imgs/gradle/android_sdk.jpeg" />
 
 #### 创建Job任务
 

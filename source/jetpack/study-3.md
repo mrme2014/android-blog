@@ -138,7 +138,7 @@ data.setValue(10);
 
 - 黏性消息分发流程。即新注册的observer也能接收到前面发送的最后一条数据
 
-![livedata2](/imgs/jetpack/livedata_sticky.png)
+ <img src="/imgs/jetpack/livedata_sticky.png" />
 
 - 普通消息分发流程。即调用postValue，setValue才会触发消息的分发
 

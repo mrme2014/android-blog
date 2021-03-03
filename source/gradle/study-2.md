@@ -1,5 +1,10 @@
 ---
 title: 深入浅出Gradle插件开发
+categories: 
+  - gradle
+tags:
+  - plugin
+  - 字节码插桩
 ---
 
 <!--more-->
@@ -70,8 +75,7 @@ gradle.buildFinished {
     println "项目构建结束..."
 }
 ```
-
-![tasks](/imgs/gradle/tasks.png)
+<img src="/imgs/gradle/tasks.png">
 
 - **打印构建阶段task依赖关系及输入输出**
 
@@ -307,7 +311,7 @@ For each added transform, a new task is created.
 - InstantPatch热修复，在所有方法前插入一个预留的函数，可以将有bug的方法替换成下发的方法。
 - CodeCheck代码检查，都是使用 transform 来做的。
 
-![transform](/imgs/gradle/transform.png)
+<img src="/imgs/gradle/transform.png">
 
 #### 如何自定义插件
 
@@ -411,7 +415,7 @@ directoryInput.getContentTypes(), directoryInput.getScopes(), Format.DIRECTORY);
 | buildSrc模块 | 将插件源代码放在 /buildSrc/src/main/groovy 中，只对该项目中可见，适用于逻辑较为复杂 |
 | **独立项目** | 独立的 Groovy 和 Java 项目，可以把这个项目打包成 Jar 文件包，一个 Jar 文件包还可以包含多个插件入口，将文件包发布到托管平台上，供其他人使用 |
 
-![buildsrc](/imgs/gradle/buildsrc.jpeg)
+<img src="/imgs/gradle/buildsrc.jpeg">
 
 ```groovy
 apply plugin: 'groovy'
